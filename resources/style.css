@@ -7,6 +7,7 @@
 
  /* 기재란 기본 틀 */
  input, select{height:30px; padding-left:5px; border-radius: 10px; font-size: 16px; width:200px; margin-bottom:10px; border:1px #333 solid;}
+ input span{display: none;}
 
  /* 전화번호 */
  .input2{width:80px;}
