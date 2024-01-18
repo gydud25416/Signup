@@ -17,7 +17,7 @@
                 </div>
                 <div class="input test">
                     <input type="text" id="item_name" name="item_name" maxlength="8">
-                    <span>한글 2자 이상 입력해주세요.</span>
+                    
 
                 </div>
             </div>
@@ -26,8 +26,9 @@
                     <label for="item_id">아이디</label> 
                 </div>
                 <div class="input test">
-                    <input type="text" id="item_id" name="item_id" maxlength="8">
-                    <span>8자 이상 20자 이하 입력해주세요.</span><span>특수문자는 포함할 수 없습니다.</span><span>사용 가능한 아이디입니다.</span>
+                    <input type="text" id="item_id" name="item_id" maxlength="20">
+                    <span class="false">8~20자 영문, 숫자 조합으로 입력해주세요.</span>
+                    <span class="true">사용 가능한 아이디입니다.</span>
 
                 </div>
             </div>
@@ -37,8 +38,9 @@
                 </div>
                 <div class="input test">
                     <input type="password" id="item_pw" name="item_pw">                    
-                    <span>8자 이상 20자 이하 입력해주세요.</span>
-                    <span>비밀번호는 문자, 숫자, 특수문자 포함입니다.</span>
+                    <span  class="false"> 8~20자 영문 대소문자, 숫자, 특수문자(!@#$%^) 조합으로 입력해주세요.</span>
+                    <span  class="true"> 사용 가능한 비밀번호입니다.</span>
+                    
 </div>
             </div>
             <div class="item">
@@ -47,8 +49,8 @@
                 </div>
                 <div class="input test">
                     <input type="password" id="item_pw2" name="item_pw2">
-                    <span>비밀번호가 일치하지 않습니다.</span>
-                    <span>비밀번호가 일치합니다.</span>
+                    <span  class="false">비밀번호가 일치하지 않습니다.</span>
+                    <span  class="true">비밀번호가 일치합니다.</span>
 
                 </div>
             </div>
@@ -56,32 +58,33 @@
                 <div class="label"><label for="item_email">이메일</label></div>
                 <div class="input"><input type="email" id="item_email" name="item_email"></div>
             </div>
-            <div class="item">
+            <div class="item phone">
                 <div class="label"><label for="item_phone1">전화번호</label></div>
-                <div class="input"><input type="tel" id="item_phone1" class="input2" name="item_phone1" maxlength="3"> - <input type="tel"  name="item_phone2"  class="input2" maxlength="4"> - <input type="tel" id="item_phone3" name="item_phone3"  class="input2" maxlength="4"></div>
+                <div class="input"><input type="tel" id="item_phone1" class="input2" name="item_phone1" maxlength="3"> - <input type="tel"  name="item_phone2"  class="input2" id="item_phone2" maxlength="4"> - <input type="tel" id="item_phone3" name="item_phone3"  class="input2" maxlength="4"></div>
             </div>
             <div class="item">
                 <div class="label"><label for="item_year">생년월일</label></div>
                 <div class="input">
                     <select name="item_year" class="input3"id="item_year">
-                        <option   selected disabled>출생 연도</option>
+                        <option value=""  selected disabled>출생 연도</option>
                     </select> 
                     <span>년</span>
                     <select name="item_month"class="input2" id="item_month">
-                        <option   selected disabled>월</option>
+                        <option  value=""  selected disabled>월</option>
                     
                     </select>
                     <span>월</span>
                     <select name="item_day"class="input2" id="item_day">
-                        <option  selected disabled>일</option>
+                        <option  value="" selected disabled>일</option>
                     </select>
                     <span>일</span>
                         </div>
             </div>
             <div class="item">
                 <div class="label"><label for="item_address">주소</label></div>
-                <div class="input"> <input type="text" id="sample2_postcode" placeholder="우편번호">
-                    <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"  class="button" ><br>
+                <div class="input"> 
+                    <input type="text" id="sample2_postcode" placeholder="우편번호">
+                    <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"  class="button" id="yourPostcodeButtonId" ><br>
                     <input type="text" id="sample2_address" placeholder="주소">
                     <input type="text" id="sample2_detailAddress" placeholder="상세주소">
                     
@@ -94,11 +97,12 @@
             </div>
             <div class="btn">
                 <input type="submit" class="button" value="가입하기">
-                <input type="reset" class="button" value="취소">
+                <input type="reset" class="button" value="다시 작성">
         </div>
         </form>
     </div>
-    <script src="resources/signup.js"></script>
+  
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="resources/signup.js"></script>
 </body>
 </html>
