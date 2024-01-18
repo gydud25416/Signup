@@ -1,5 +1,5 @@
     
-    /* 생년월일 option 복사*/
+    /* 생년월일 option 복사 */
     isYearOptionExisted = false;
     document.querySelector("#item_year").addEventListener("click", function(){ 
         if(!isYearOptionExisted){
@@ -38,12 +38,209 @@
     }
     })
 
+ 
+    let testName = /[가-힣]{2,}/;
+    let itemName = document.querySelector("#item_name");
 
-    // 회원가입 폽 입력 시
-    document.querySelector(".section form").addEventListener("submit", function(e){
-        e.preventDefault();
-        alert("정보를 정확하게 입력해주세요.")
+    const testId = /^[a-zA-Z0-9](?=.*[A-Z|a-z])(?=.*\d)[A-Za-z0-9]+$/;
+    let itemId = document.querySelector("#item_id");
+
+    let testPw = /^[a-zA-Z0-9!@#$%^](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&^])[a-zA-Z0-9!@#$%^]+$/;
+    let itemPw = document.querySelector("#item_pw");
+    let itemPw2 = document.querySelector("#item_pw2");
+
+    let itemEmail = document.querySelector("#item_email");
+    let testEmail = /^[a-zA-Z0-9]@[a-zA-Z].[a-z]{2,3}$/
+
+    let itemDress = document.querySelector("#sample2_detailAddress");
+
+    let itemPhone1 = document.querySelector("#item_phone1");
+    let itemPhone2 = document.querySelector("#item_phone2");
+    let itemPhone3 = document.querySelector("#item_phone3");
+    let itemYear = document.querySelector("#item_year");
+    let itemMonth = document.querySelector("#item_month");
+    let itemDay = document.querySelector("#item_day");
+
+    let phone = document.querySelectorAll(".phone .input2");
+
+    phone[0].addEventListener("keyup", function(){
+        this.value = this.value.replace(/[^0-9]/, '');
+    });
+    phone[1].addEventListener("keyup", function(){
+        this.value = this.value.replace(/[^0-9]/, '');
+    });
+    phone[2].addEventListener("keyup", function(){
+        this.value = this.value.replace(/[^0-9]/, '');
+    });
+
+    itemId.addEventListener("keyup", function(){
+        if(!itemId.value.length == ''){
+            if(itemId.value.length < 8 || itemId.value.length > 20 || testId.test(itemId.value) == false){
+                document.querySelector("#item_id ~ .false").style.display="block";
+                document.querySelector("#item_id ~ .true").style.display="none";
+
+            } else{
+                document.querySelector("#item_id ~ .false").style.display="none";
+                document.querySelector("#item_id ~ .true").style.display="block";
+            }
+        }
+    });
+
+    itemPw.addEventListener("keyup", function(){
+        if(!itemPw.value.length == ''){
+            if(itemPw.value.length < 8 || itemPw.value.length > 20 || testPw.test(itemPw.value) == false){
+                document.querySelector("#item_pw ~ .false").style.display = "block";
+                document.querySelector("#item_pw ~ .true").style.display = "none";
+            } else {
+                document.querySelector("#item_pw ~ .false").style.display = "none";
+                document.querySelector("#item_pw ~ .true").style.display = "block";
+
+            }
+        }
     })
+    itemPw2.addEventListener("keyup", function(){
+        if(!itemPw2.value.length == ''){
+            if(itemPw.value !== itemPw2.value){
+                document.querySelector("#item_pw2 ~ .false").style.display = "block";
+                document.querySelector("#item_pw2 ~ .true").style.display = "none";
+            } else {
+                document.querySelector("#item_pw2 ~ .false").style.display = "none";
+                document.querySelector("#item_pw2 ~ .true").style.display = "block";
+
+            }
+        }
+    })
+
+    
+
+    /* 이름 폼 입력 시 */
+    document.querySelector(".section form").addEventListener("submit", function(e){
+        if(itemName.value.length == ''){
+            alert("이름을 입력해주세요.");
+            itemName.focus();
+            e.preventDefault();
+            return;
+        }
+        if(!testName.test(itemName.value) ){
+            alert("이름은 한글 2자 이상 입력해주세요");
+            itemName.focus();
+            e.preventDefault();
+            return;
+        } 
+        /* 아이디 입력 시  */
+
+    if(itemId.value.length == ''){
+        alert("아이디를 입력하세요.");
+        itemId.focus();
+        e.preventDefault();
+        return;
+    }
+
+    if(itemId.value.length < 8 || itemId.value.length > 20 || testId.test(itemId.value) == false){
+        alert("아이디는 8~20자 영문, 숫자 조합으로 입력해주세요.");
+        itemId.focus();
+        e.preventDefault();
+        return;
+    }
+
+    /* 비밀번호 입력 시 */
+
+    if(itemPw.value.length == ''){
+        alert("비밀번호를 입력해주세요.")
+        itemPw.focus();
+        e.preventDefault();
+        return;
+    }
+    if(itemPw.value.length < 8 || itemPw.value.length > 20 || testPw.test(itemPw.value) == false){
+        alert("비밀번호는 8~20자 영문 대소문자, 숫자, 특수문자(!@#$%^) 조합으로 입력해주세요.");
+        itemPw.focus();
+        e.preventDefault();
+        return;
+    }
+
+    /* 비밀번호 확인시 */
+    if(itemPw2.value.length == ''){
+        alert("비밀번호를 확인해주세요.");
+        itemPw2.focus();
+        e.preventDefault();
+        return;
+        
+    }
+
+    if(itemPw.value !== itemPw2.value){
+        alert("비밀번호가 일치하지 않습니다.");
+        itemPw2.focus();
+        e.preventDefault();
+        return;
+    }
+
+    if(itemEmail.value.length == ''){
+        alert("이메일을 입력해주세요.");
+        itemEmail.focus();
+        e.preventDefault();
+        return;
+    }
+
+    if(testEmail.test(itemEmail.value)){
+        alert("이메일 형식에 맞지 않습니다.");
+        itemEmail.focus();
+        e.preventDefault();
+        return;
+    }
+    /* 전화번호를 입력해주세요 */
+    if(itemPhone1.value.length == ''){
+        alert("전화번호를 입력해주세요.");
+        itemPhone1.focus();
+        e.preventDefault();
+        return;
+    }
+    if(itemPhone2.value.length == ''){
+        alert("전화번호를 입력해주세요.");
+        itemPhone2.focus();
+        e.preventDefault();
+        return;
+    }
+    if(itemPhone3.value.length == ''){
+        alert("전화번호를 입력해주세요.");
+        itemPhone3.focus();
+        e.preventDefault();
+        return;
+    }
+
+    /* 상세주소 */
+
+    if(itemDress.value.length == ''){
+        alert("상세주소를 입력해주세요.")
+        itemDress.focus();
+        e.preventDefault();
+        return;
+    }
+
+    /* 생년월일 */
+    if(itemYear.value == ''){
+        alert("생년월일을 선택해주세요.")
+        itemYear.focus();
+        e.preventDefault();
+        return;
+    }
+    if(itemMonth.value == ''){
+        alert("생년월일을 선택해주세요.")
+        itemMonth.focus();
+        e.preventDefault();
+        return;
+    }
+    if(itemDay.value == ''){
+        alert("생년월일을 선택해주세요.")
+        itemDay.focus();
+        e.preventDefault();
+        return;
+    }
+
+ 
+    })
+
+    
+
 
 
     // 우편번호 찾기 화면을 넣을 element
@@ -131,3 +328,8 @@
         element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
+    var postcodeButton = document.getElementById('yourPostcodeButtonId');  // 우편번호 찾기 버튼의 실제 ID를 사용해야 합니다.
+
+postcodeButton.addEventListener('click', function() {
+    sample2_execDaumPostcode();
+});
