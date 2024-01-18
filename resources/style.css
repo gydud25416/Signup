@@ -6,17 +6,24 @@
  h1{text-align: center; padding:20px 0;}
 
  /* 기재란 기본 틀 */
- input, select{height:30px; padding-left:5px; border-radius: 10px; font-size: 16px; width:200px; margin-bottom:10px; border:1px #333 solid;}
- input span{display: none;}
+ input, select{height:30px; padding-left:5px; border-radius: 10px; font-size: 16px; width:200px; margin-bottom:10px; border:1px #333 solid; box-sizing: border-box;}
+ .input.test span{display: none;}
 
- /* 전화번호 */
+ /* input크기 */
  .input2{width:80px;}
- /* 주소 */
+ .input3{width:100px;}
+
+ /* 생년월일 */
+ #item_year ~ span{padding-right:10px;}
+
+ /* 주소 */ 
  #sample2_postcode{width:100px;}
  #sample2_address{width:400px;}
 
- .button{border:0; background:#333; color:white; cursor: pointer;}
+ .button{border:0; background:#333; color:white; cursor: pointer; position:relative; top:2px; }
 
  .btn{ width:100%;text-align: center;  }
  .btn input{padding:10px 0; height:auto; margin-top:20px; cursor: pointer; }
  .btn input:nth-child(2){background:white; color:#333; border:#333 1px solid;}
+
+

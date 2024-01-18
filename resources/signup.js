@@ -1,3 +1,5 @@
+    
+    /* 생년월일 option 복사*/
     isYearOptionExisted = false;
     document.querySelector("#item_year").addEventListener("click", function(){ 
         if(!isYearOptionExisted){
@@ -6,7 +8,7 @@
             const option1 = document.createElement('option')
             this.appendChild(option1);
             option1.innerText= i
-            option1.setAttribute('value', i)
+            option1.setAttribute('value', i) 
            }
     }
     })
@@ -36,6 +38,12 @@
     }
     })
 
+
+    // 회원가입 폽 입력 시
+    document.querySelector(".section form").addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("정보를 정확하게 입력해주세요.")
+    })
 
 
     // 우편번호 찾기 화면을 넣을 element

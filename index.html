@@ -13,9 +13,19 @@
         <form action="complete.html" method="post">
             <div class="item">
                 <div class="label">
+                    <label for="item_name">이름</label> 
+                </div>
+                <div class="input test">
+                    <input type="text" id="item_name" name="item_name" maxlength="8">
+                    <span>한글 2자 이상 입력해주세요.</span>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">
                     <label for="item_id">아이디</label> 
                 </div>
-                <div class="input">
+                <div class="input test">
                     <input type="text" id="item_id" name="item_id" maxlength="8">
                     <span>8자 이상 20자 이하 입력해주세요.</span><span>특수문자는 포함할 수 없습니다.</span><span>사용 가능한 아이디입니다.</span>
 
@@ -25,7 +35,7 @@
                 <div class="label">
                     <label for="item_pw">비밀번호</label>
                 </div>
-                <div class="input">
+                <div class="input test">
                     <input type="password" id="item_pw" name="item_pw">                    
                     <span>8자 이상 20자 이하 입력해주세요.</span>
                     <span>비밀번호는 문자, 숫자, 특수문자 포함입니다.</span>
@@ -35,7 +45,7 @@
                 <div class="label">
                     <label for="item_pw2">비밀번호 확인</label>
                 </div>
-                <div class="input">
+                <div class="input test">
                     <input type="password" id="item_pw2" name="item_pw2">
                     <span>비밀번호가 일치하지 않습니다.</span>
                     <span>비밀번호가 일치합니다.</span>
@@ -53,16 +63,19 @@
             <div class="item">
                 <div class="label"><label for="item_year">생년월일</label></div>
                 <div class="input">
-                    <select name="item_year" id="item_year">
+                    <select name="item_year" class="input3"id="item_year">
                         <option   selected disabled>출생 연도</option>
-                    </select>
-                    <select name="item_month" id="item_month">
+                    </select> 
+                    <span>년</span>
+                    <select name="item_month"class="input2" id="item_month">
                         <option   selected disabled>월</option>
                     
                     </select>
-                    <select name="item_day" id="item_day">
+                    <span>월</span>
+                    <select name="item_day"class="input2" id="item_day">
                         <option  selected disabled>일</option>
                     </select>
+                    <span>일</span>
                         </div>
             </div>
             <div class="item">
