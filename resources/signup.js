@@ -50,7 +50,7 @@
     let itemPw2 = document.querySelector("#item_pw2");
 
     let itemEmail = document.querySelector("#item_email");
-    let testEmail = /^[a-zA-Z0-9]@[a-zA-Z].[a-z]{2,3}$/
+    let testEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z.-_]+\.[a-z]{2,3}$/;
 
     let itemDress = document.querySelector("#sample2_detailAddress");
 
@@ -181,7 +181,7 @@
         return;
     }
 
-    if(testEmail.test(itemEmail.value)){
+    if(testEmail.test(itemEmail.value) == false){
         alert("이메일 형식에 맞지 않습니다.");
         itemEmail.focus();
         e.preventDefault();
