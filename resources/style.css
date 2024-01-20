@@ -31,3 +31,5 @@
  .btn input:nth-child(2){background:white; color:#333; border:#333 1px solid;}
 
 
+/* 완료 */
+.section p {text-align:center; font-size: 16px; padding: 30px 0;}

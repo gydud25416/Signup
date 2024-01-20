@@ -44,8 +44,8 @@
 
     const testId = /^[a-zA-Z0-9](?=.*[A-Z|a-z])(?=.*\d)[A-Za-z0-9]+$/;
     let itemId = document.querySelector("#item_id");
-
-    let testPw = /^[a-zA-Z0-9!@#$%^](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^])[a-zA-Z0-9!@#$%^]+$/;
+ 
+    let testPw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^])[a-zA-Z0-9!@#$%^]{8,20}$/;
     let itemPw = document.querySelector("#item_pw");
     let itemPw2 = document.querySelector("#item_pw2");
 
@@ -83,6 +83,11 @@
                 document.querySelector("#item_id ~ .false").style.display="none";
                 document.querySelector("#item_id ~ .true").style.display="block";
             }
+        }else{
+            document.querySelector("#item_id ~ .true").style.display="none";
+            document.querySelector("#item_id ~ .false").style.display="none";
+
+
         }
     });
 
@@ -96,7 +101,28 @@
                 document.querySelector("#item_pw ~ .true").style.display = "block";
 
             }
+        }else{
+            document.querySelector("#item_pw ~ .true").style.display = "none";
+            document.querySelector("#item_pw ~ .false").style.display = "none";
+
+
         }
+        if(!itemPw2.value.length == ''){
+            if(itemPw.value !== itemPw2.value){
+                document.querySelector("#item_pw2 ~ .false").style.display = "block";
+                document.querySelector("#item_pw2 ~ .true").style.display = "none";
+            } else {
+                document.querySelector("#item_pw2 ~ .false").style.display = "none";
+                document.querySelector("#item_pw2 ~ .true").style.display = "block";
+
+            }
+        }else{
+            document.querySelector("#item_pw2 ~ .true").style.display = "none";
+            document.querySelector("#item_pw2 ~ .false").style.display = "none";
+
+
+        }
+
     })
     itemPw2.addEventListener("keyup", function(){
         if(!itemPw2.value.length == ''){
@@ -108,10 +134,15 @@
                 document.querySelector("#item_pw2 ~ .true").style.display = "block";
 
             }
+        }else{
+            document.querySelector("#item_pw2 ~ .true").style.display = "none";
+            document.querySelector("#item_pw2 ~ .false").style.display = "none";
+
+
         }
     })
 
-    
+
 
     /* 이름 폼 입력 시 */
     document.querySelector(".section form").addEventListener("submit", function(e){
@@ -207,6 +238,26 @@
         return;
     }
 
+        /* 생년월일 */
+        if(itemYear.value == ''){
+            alert("생년월일을 선택해주세요.")
+            itemYear.focus();
+            e.preventDefault();
+            return;
+        }
+        if(itemMonth.value == ''){
+            alert("생년월일을 선택해주세요.")
+            itemMonth.focus();
+            e.preventDefault();
+            return;
+        }
+        if(itemDay.value == ''){
+            alert("생년월일을 선택해주세요.")
+            itemDay.focus();
+            e.preventDefault();
+            return;
+        }
+    
     /* 상세주소 */
 
     if(itemDress.value.length == ''){
@@ -216,25 +267,6 @@
         return;
     }
 
-    /* 생년월일 */
-    if(itemYear.value == ''){
-        alert("생년월일을 선택해주세요.")
-        itemYear.focus();
-        e.preventDefault();
-        return;
-    }
-    if(itemMonth.value == ''){
-        alert("생년월일을 선택해주세요.")
-        itemMonth.focus();
-        e.preventDefault();
-        return;
-    }
-    if(itemDay.value == ''){
-        alert("생년월일을 선택해주세요.")
-        itemDay.focus();
-        e.preventDefault();
-        return;
-    }
 
  
     })
