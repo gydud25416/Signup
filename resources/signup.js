@@ -45,7 +45,7 @@
     const testId = /^[a-zA-Z0-9](?=.*[A-Z|a-z])(?=.*\d)[A-Za-z0-9]+$/;
     let itemId = document.querySelector("#item_id");
 
-    let testPw = /^[a-zA-Z0-9!@#$%^](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&^])[a-zA-Z0-9!@#$%^]+$/;
+    let testPw = /^[a-zA-Z0-9!@#$%^](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^])[a-zA-Z0-9!@#$%^]+$/;
     let itemPw = document.querySelector("#item_pw");
     let itemPw2 = document.querySelector("#item_pw2");
 
