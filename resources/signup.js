@@ -272,7 +272,21 @@
     })
 
     
+    /* 리셋 클릭 */
 
+    document.querySelector(".section form").addEventListener("reset", reset)
+
+    function reset(){
+      
+        let text_true = document.querySelectorAll(".true");
+        let text_false = document.querySelectorAll(".false");
+        for(i=0; i<text_true.length ; i++){
+            text_true[i].style.display ="none"
+        }
+        for(i=0; i<text_false.length ; i++){
+            text_false[i].style.display ="none"
+        }
+    }
 
 
     // 우편번호 찾기 화면을 넣을 element
