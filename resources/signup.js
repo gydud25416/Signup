@@ -63,16 +63,24 @@
 
     let phone = document.querySelectorAll(".phone .input2");
 
+    //전화번호 입력 
     phone[0].addEventListener("keyup", function(){
-        this.value = this.value.replace(/[^0-9]/, '');
+        this.value = this.value.replace(/[^0-9]/, ''); //숫자만 입력가능
+        if(this.value.length == 3 ){                   //3글자  치면 포커스 넘김
+            phone[1].focus(); 
+        }
     });
     phone[1].addEventListener("keyup", function(){
-        this.value = this.value.replace(/[^0-9]/, '');
+        this.value = this.value.replace(/[^0-9]/, ''); //숫자만 입력가능
+        if(this.value.length == 4 ){                   //4글자  치면 포커스 넘김
+            phone[2].focus();
+        }
     });
     phone[2].addEventListener("keyup", function(){
-        this.value = this.value.replace(/[^0-9]/, '');
-    });
+        this.value = this.value.replace(/[^0-9]/, ''); //숫자만 입력가능
+     });
 
+    //아이디 경고문
     itemId.addEventListener("keyup", function(){
         if(!itemId.value.length == ''){
             if(itemId.value.length < 8 || itemId.value.length > 20 || testId.test(itemId.value) == false){
@@ -91,6 +99,7 @@
         }
     });
 
+    //비밀번호 경고문
     itemPw.addEventListener("keyup", function(){
         if(!itemPw.value.length == ''){
             if(itemPw.value.length < 8 || itemPw.value.length > 20 || testPw.test(itemPw.value) == false){
@@ -124,6 +133,8 @@
         }
 
     })
+
+    //비밀번호 확인경고문
     itemPw2.addEventListener("keyup", function(){
         if(!itemPw2.value.length == ''){
             if(itemPw.value !== itemPw2.value){
@@ -272,7 +283,21 @@
     })
 
     
+    /* 리셋 클릭 */
 
+    document.querySelector(".section form").addEventListener("reset", reset)
+
+    function reset(){
+      
+        let text_true = document.querySelectorAll(".true");
+        let text_false = document.querySelectorAll(".false");
+        for(i=0; i<text_true.length ; i++){
+            text_true[i].style.display ="none"
+        }
+        for(i=0; i<text_false.length ; i++){
+            text_false[i].style.display ="none"
+        }
+    }
 
 
     // 우편번호 찾기 화면을 넣을 element
