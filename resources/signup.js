@@ -50,7 +50,9 @@
     let itemPw2 = document.querySelector("#item_pw2");
 
     let itemEmail = document.querySelector("#item_email");
-    let testEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z.-_]+\.[a-z]{2,3}$/;
+    let itemEmail2 = document.querySelector("#item_email2");
+    let testEmail = /^[a-zA-Z0-9]+$/;
+    let testEmail2 =/^[a-zA-Z0-9._-]+\.[a-zA-Z]{2,3}$/; 
 
     let itemDress = document.querySelector("#sample2_detailAddress");
 
@@ -151,12 +153,32 @@
 
 
         }
+    });
+
+    //이메일 도메인 입력하기
+    let emailSite = document.querySelector("#email_site");
+
+    emailSite.addEventListener("change", function(e){
+
+        if(e.target.value == '네이버'){
+            itemEmail2.value = 'naver.com'
+            itemEmail2.setAttribute("disabled", true)
+        }
+        if(e.target.value == '구글'){
+            itemEmail2.value = 'gmail.com'
+            itemEmail2.setAttribute("disabled", true)
+        }
+        if(e.target.value == '다음'){
+            itemEmail2.value = 'daum.com'
+            itemEmail2.setAttribute("disabled", true)
+        }
     })
 
 
 
-    /* 이름 폼 입력 시 */
+    // 가입하기 클릭 시
     document.querySelector(".section form").addEventListener("submit", function(e){
+        /* 이름 폼 입력 시 */
         if(itemName.value.length == ''){
             alert("이름을 입력해주세요.");
             itemName.focus();
@@ -216,6 +238,7 @@
         return;
     }
 
+    //이메일 입력 시
     if(itemEmail.value.length == ''){
         alert("이메일을 입력해주세요.");
         itemEmail.focus();
@@ -226,6 +249,20 @@
     if(testEmail.test(itemEmail.value) == false){
         alert("이메일 형식에 맞지 않습니다.");
         itemEmail.focus();
+        e.preventDefault();
+        return;
+    }
+    
+
+    if(itemEmail2.value == ''){
+        alert("이메일을 입력해주세요.");
+        itemEmail2.focus();
+        e.preventDefault();
+        return;
+    }
+    if(!testEmail2.test(itemEmail2.value)){
+        alert("이메일 형식에 맞지 않습니다.");
+        itemEmail2.focus();
         e.preventDefault();
         return;
     }

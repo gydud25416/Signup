@@ -58,7 +58,14 @@
             </div>
             <div class="item">
                 <div class="label"><label for="item_email">이메일</label></div>
-                <div class="input"><input type="email" id="item_email" name="item_email"></div>
+                <div class="input"><input type="text" id="item_email" name="item_email"> @ <input type="text" name="item_email2" id="item_email2"> 
+                    <select name="email_site" id="email_site">
+                        <option value="직접입력" selected>직접입력</option>
+                        <option value="네이버">네이버</option>
+                        <option value="구글">구글</option>
+                        <option value="다음">다음</option>
+                    </select>
+                </div>
             </div>
             <div class="item phone">
                 <div class="label"><label for="item_phone1">전화번호</label></div>
