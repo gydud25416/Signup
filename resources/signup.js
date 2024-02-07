@@ -159,7 +159,10 @@
     let emailSite = document.querySelector("#email_site");
 
     emailSite.addEventListener("change", function(e){
-
+        if(e.target.value == '직접입력'){
+            itemEmail2.value = ''
+            itemEmail2.removeAttribute("disabled" )
+        }
         if(e.target.value == '네이버'){
             itemEmail2.value = 'naver.com'
             itemEmail2.setAttribute("disabled", true)
